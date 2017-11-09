@@ -9,25 +9,10 @@
         <Projects Include="abstract-factory\abstract_factory.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="method_factory\method_factory.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="adapter\adapter.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="facade\facade.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="composite\composite.dproj">
-            <Dependencies/>
-        </Projects>
         <Projects Include="observer\observer.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="state\state.dproj">
-            <Dependencies/>
-        </Projects>
-        <Projects Include="strategy\strategy.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -56,15 +41,6 @@
     <Target Name="abstract_factory:Make">
         <MSBuild Projects="abstract-factory\abstract_factory.dproj" Targets="Make"/>
     </Target>
-    <Target Name="method_factory">
-        <MSBuild Projects="method_factory\method_factory.dproj"/>
-    </Target>
-    <Target Name="method_factory:Clean">
-        <MSBuild Projects="method_factory\method_factory.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="method_factory:Make">
-        <MSBuild Projects="method_factory\method_factory.dproj" Targets="Make"/>
-    </Target>
     <Target Name="adapter">
         <MSBuild Projects="adapter\adapter.dproj"/>
     </Target>
@@ -73,24 +49,6 @@
     </Target>
     <Target Name="adapter:Make">
         <MSBuild Projects="adapter\adapter.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="facade">
-        <MSBuild Projects="facade\facade.dproj"/>
-    </Target>
-    <Target Name="facade:Clean">
-        <MSBuild Projects="facade\facade.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="facade:Make">
-        <MSBuild Projects="facade\facade.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="composite">
-        <MSBuild Projects="composite\composite.dproj"/>
-    </Target>
-    <Target Name="composite:Clean">
-        <MSBuild Projects="composite\composite.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="composite:Make">
-        <MSBuild Projects="composite\composite.dproj" Targets="Make"/>
     </Target>
     <Target Name="observer">
         <MSBuild Projects="observer\observer.dproj"/>
@@ -101,32 +59,14 @@
     <Target Name="observer:Make">
         <MSBuild Projects="observer\observer.dproj" Targets="Make"/>
     </Target>
-    <Target Name="state">
-        <MSBuild Projects="state\state.dproj"/>
-    </Target>
-    <Target Name="state:Clean">
-        <MSBuild Projects="state\state.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="state:Make">
-        <MSBuild Projects="state\state.dproj" Targets="Make"/>
-    </Target>
-    <Target Name="strategy">
-        <MSBuild Projects="strategy\strategy.dproj"/>
-    </Target>
-    <Target Name="strategy:Clean">
-        <MSBuild Projects="strategy\strategy.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="strategy:Make">
-        <MSBuild Projects="strategy\strategy.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="singleton;abstract_factory;method_factory;adapter;facade;composite;observer;state;strategy"/>
+        <CallTarget Targets="singleton;abstract_factory;adapter;observer"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="singleton:Clean;abstract_factory:Clean;method_factory:Clean;adapter:Clean;facade:Clean;composite:Clean;observer:Clean;state:Clean;strategy:Clean"/>
+        <CallTarget Targets="singleton:Clean;abstract_factory:Clean;adapter:Clean;observer:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="singleton:Make;abstract_factory:Make;method_factory:Make;adapter:Make;facade:Make;composite:Make;observer:Make;state:Make;strategy:Make"/>
+        <CallTarget Targets="singleton:Make;abstract_factory:Make;adapter:Make;observer:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

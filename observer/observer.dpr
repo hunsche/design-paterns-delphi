@@ -5,13 +5,21 @@ program observer;
 {$R *.res}
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  BroadCast in 'BroadCast.pas';
+
+var
+  Pause: Integer;
+  Router: TRouter;
+  Package: TPackage;
+
 
 begin
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+  Package := TPackage.Create;
+  Package.Value := 'Design Paterns';
+
+  Router := TRouter.Create;
+  Router.BroadCast(Package);
+
+  Readln(Pause);
 end.

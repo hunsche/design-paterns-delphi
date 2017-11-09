@@ -5,13 +5,17 @@ program adapter;
 {$R *.res}
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  Pessoa in 'Pessoa.pas';
+
+var
+  pause: integer;
+  Pessoa: TPessoa;
+  AdapterPessoa: TAdapterPessoa;
 
 begin
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+  Pessoa := TPessoa.Create;
+  AdapterPessoa := TAdapterPessoa.Create(Pessoa);
+  Writeln(AdapterPessoa.GetName);
+  Readln(pause);
 end.

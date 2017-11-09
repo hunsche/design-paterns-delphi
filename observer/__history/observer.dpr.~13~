@@ -1,0 +1,22 @@
+program observer;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils,
+  BroadCast in 'BroadCast.pas';
+
+var
+  Pause: Integer;
+  Input: String;
+  Router: TRouter;
+
+
+begin
+  Readln(Input);
+  Router := TRouter.Create;
+  Router.BroadCast(TPackage.Create());
+  Readln(Pause);
+end.

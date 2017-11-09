@@ -5,13 +5,27 @@ program abstract_factory;
 {$R *.res}
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  Interfaces in 'Interfaces.pas',
+  McDonald in 'McDonald.pas',
+  BugerKing in 'BugerKing.pas';
+
+var
+  Input: string;
+  Pause: Integer;
+  Company: IFactoryCompany;
 
 begin
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+  Readln(Input);
+
+  if Input = 'McDonald' then
+    Company := TMcDonald.Create
+  else if Input = 'BurgerKing' then
+    Company := TBurgerKing.Create;
+
+  Writeln('Prices');
+  Writeln('Hamburger = ' + Company.GetHamburger.GetValue.ToString + ' R$');
+  Writeln('Soda = ' + Company.GetSoda.GetValue.ToString + ' R$');
+
+  Readln(Pause);
 end.

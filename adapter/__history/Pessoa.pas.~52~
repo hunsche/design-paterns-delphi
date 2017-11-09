@@ -1,0 +1,38 @@
+unit Pessoa;
+
+interface
+
+uses SysUtils, ComObj, Classes, XMLIntf, XMLDoc;
+
+type
+
+  TPessoa = class
+  private
+    function GetValue: IXMLDocument;
+  public
+    function GetName: string;
+  end;
+
+  TAdapterPessoa = class
+  public
+    function GetName: string;
+    constructor Create(Pessoa: TPessoa);
+  end;
+
+implementation
+
+{ TAdapterPessoa }
+
+constructor TAdapterPessoa.Create(Pessoa: TPessoa);
+begin
+
+end;
+
+{ TPessoa }
+
+function TPessoa.GetName: string;
+begin
+  Result := 'matheus';
+end;
+
+end.

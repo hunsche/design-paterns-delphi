@@ -1,0 +1,23 @@
+unit McDonald;
+
+interface
+
+uses Interfaces;
+
+type
+  TCoca = class(TInterfacedObject, ISoda)
+    function GetValue: Double;
+  end;
+
+  TBigMac = class(TInterfacedObject, IHamburger)
+    function GetValue: Double;
+  end;
+
+  TMcDonald = class(TInterfacedObject, IFactoryFood)
+    function GetHamburger: IHamburger;
+    function GetSoda: ISoda;
+  end;
+
+implementation
+
+end.

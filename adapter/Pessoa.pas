@@ -1,0 +1,43 @@
+unit Pessoa;
+
+interface
+
+uses SysUtils, ComObj, Classes, XMLIntf, XMLDoc;
+
+type
+
+  TPessoa = class
+  public
+    function GetName: string;
+  end;
+
+  TAdapterPessoa = class
+  private
+    FPessoa: TPessoa;
+  public
+    function GetName: string;
+    constructor Create(Pessoa: TPessoa);
+  end;
+
+implementation
+
+{ TAdapterPessoa }
+
+constructor TAdapterPessoa.Create(Pessoa: TPessoa);
+begin
+  FPessoa := Pessoa;
+end;
+
+function TAdapterPessoa.GetName: string;
+begin
+  Result :=  UpperCase(FPessoa.GetName);
+end;
+
+{ TPessoa }
+
+function TPessoa.GetName: string;
+begin
+  Result := 'matheus';
+end;
+
+end.

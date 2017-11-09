@@ -1,0 +1,21 @@
+unit Intarfaces;
+
+interface
+
+type
+  IHamburger = interface
+    function GetValue: float;
+  end;
+
+  ISoda = interface
+
+  end;
+
+  IFactoryFood = interface
+    function GetHamburger: IHamburger;
+    function GetSoda: ISoda;
+  end;
+
+implementation
+
+end.

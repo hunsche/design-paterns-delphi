@@ -1,0 +1,20 @@
+unit Intarfaces;
+
+interface
+
+type
+  IFactoryFood = interface
+    function GetSnack: GetSnack
+  end;
+
+  IHamburger = interface
+
+  end;
+
+  ISoda = interface
+
+  end;
+
+implementation
+
+end.

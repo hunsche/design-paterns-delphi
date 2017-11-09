@@ -1,0 +1,38 @@
+unit mySingleton;
+
+interface
+
+type
+
+  TMySingleton = class
+  private
+    class var FInstance: TMySingleton;
+    FValue: string;
+  public
+    class function GetInstance: TMySingleton;
+    class procedure Release;
+        property Value: string read FValue write FValue;
+  end;
+
+implementation
+
+{ TMySingleton }
+
+class function TMySingleton.GetInstance: TMySingleton;
+begin
+  if not assigned(FInstance) then
+    FInstance := TMySingleton.Create;
+  Result := FInstance;
+end;
+
+class procedure TMySingleton.Release;
+begin
+  FInstance.Free;
+end;
+
+initialization
+
+finalization
+  TMySingleton.Release;
+
+end.

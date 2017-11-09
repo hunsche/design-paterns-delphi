@@ -5,13 +5,14 @@ program singleton;
 {$R *.res}
 
 uses
-  System.SysUtils;
+  System.SysUtils,
+  mySingleton in 'mySingleton.pas';
+
+var
+  pause: integer;
 
 begin
-  try
-    { TODO -oUser -cConsole Main : Insert code here }
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
+  TMySingleton.GetInstance.Value := 'Design Patern';
+  Writeln(TMySingleton.GetInstance.Value);
+  Readln(pause);
 end.
